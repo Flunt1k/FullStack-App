@@ -1,4 +1,5 @@
 const express = require('express')
+const mongoose = require('mongoose')
 const bodyParser = require('body-parser') // parse data from user
 const cors = require('cors') //work with cors requests
 const morgan = require('morgan') // logging request
@@ -7,9 +8,13 @@ const analyticsRoutes = require('./routs/analytics')
 const categoryRoutes  = require('./routs/category')
 const orderRoutes = require('./routs/order')
 const positionRoutes  = require('./routs/position')
-
+const keys = require('./config/keys')
 //Create Express App
 const app = express();
+
+mongoose.connect(keys.MONGO_URI)
+    .then(() => console.log('DB is ready'))
+    .catch((error) => console.log(error))
 
 //modules for more comfortable for with server
 app.use(morgan('dev'))

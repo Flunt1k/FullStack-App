@@ -3,12 +3,17 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser') // parse data from user
 const cors = require('cors') //work with cors requests
 const morgan = require('morgan') // logging request
+
+//Routs
 const authRoutes = require('./routs/auth')
 const analyticsRoutes = require('./routs/analytics')
 const categoryRoutes  = require('./routs/category')
 const orderRoutes = require('./routs/order')
 const positionRoutes  = require('./routs/position')
+
+//Keys
 const keys = require('./config/keys')
+
 //Create Express App
 const app = express();
 

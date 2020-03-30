@@ -1,3 +1,4 @@
+const bcrypt = require('bcryptjs')
 const User = require('../models/User')
 
 module.exports.login = function(request, response) {
@@ -16,9 +17,12 @@ module.exports.register = async function(request, response) {
             message: 'User is already exist. Change your email or reset password'
         })
     } else {
+        //Generate new hash code for password
+        const salt = bcrypt.genSaltSync(10)
+        const password = request.body.password
         const user = new User({
             email: request.body.email,
-            password: request.body.password
+            password: bcrypt.hashSync(password, salt)
         })
         try {
             await user.save()

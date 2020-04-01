@@ -1,4 +1,5 @@
 const express = require('express')
+const passport = require('passport')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser') // parse data from user
 const cors = require('cors') //work with cors requests
@@ -17,9 +18,12 @@ const keys = require('./config/keys')
 //Create Express App
 const app = express();
 
+//Connect DataBase MongoDB
 mongoose.connect(keys.MONGO_URI)
-    .then(() => console.log('DB is ready'))
-    .catch((error) => console.log(error))
+
+//Init passportJS
+app.use(passport.initialize())
+require('./middleware/passport')(passport)
 
 //modules for more comfortable for with server
 app.use(morgan('dev'))

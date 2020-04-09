@@ -28,20 +28,27 @@ module.exports.deleteByID = async function(request, response) {
           message: "Category is deleted"
       })
   } catch (error) {
-    errorHandler(error);
+    errorHandler(response,error);
   }
 };
 
 module.exports.createCategory = async function(request, response) {
   try {
+      const category = new Category({
+          name: request.body.name,
+          user: request.user.id,
+          imgSrc: request.file ? request.file.path : ''
+      })
+      await category.save()
+      response.status(201).json(category)
   } catch (error) {
-    errorHandler(error);
+    errorHandler(response, error);
   }
 };
 
 module.exports.updateCategory = async function(request, response) {
   try {
   } catch (error) {
-    errorHandler(error);
+    errorHandler(response, error);
   }
 };

@@ -1,19 +1,43 @@
-module.exports.getAll = function(request, response) {
-    response.json({ message: 'Categories' })
+const Category = require('../models/Category')
+const errorHandler = require('../utils/errorHandler')
+
+module.exports.getAll = async function(request, response) {
+    try {
+      const categories = await Category.find({user: request.user.id})
+      response.status(200).json(categories)          
+    } catch (error) {
+      errorHandler(error)  
+    }
 }
 
-module.exports.getByID = function(request, response) {
-    
+module.exports.getByID = async function(request, response) {
+    try {
+        
+    } catch (error) {
+      errorHandler(error)  
+    }
 }
 
-module.exports.deleteByID = function(request, response) {
-    
+module.exports.deleteByID = async function(request, response) {
+    try {
+        
+    } catch (error) {
+      errorHandler(error)  
+    }
 }
 
-module.exports.createCategory = function(request, response) {
-    
+module.exports.createCategory = async function(request, response) {
+    try {
+        
+    } catch (error) {
+      errorHandler(error)  
+    }
 }
 
-module.exports.updateCategory = function(request, response) {
-    
+module.exports.updateCategory = async function(request, response) {
+    try {
+        
+    } catch (error) {
+      errorHandler(error)  
+    }
 }

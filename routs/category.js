@@ -6,13 +6,13 @@ const upload = require('../middleware/upload')
 
 router.get('/', passport.authenticate('jwt', {session: false}), controller.getAll)
 
-router.get(':id', controller.getByID)
+router.get(':id', passport.authenticate('jwt', {session: false}), controller.getByID)
 
-router.delete('/:id', controller.deleteByID)
+router.delete('/:id', passport.authenticate('jwt', {session: false}), controller.deleteByID)
 
-router.post('/', upload.single('image'), controller.createCategory)
+router.post('/', passport.authenticate('jwt', {session: false}), upload.single('image'), controller.createCategory)
 
-router.patch('/:id', upload.single('image'), controller.updateCategory)
+router.patch('/:id', passport.authenticate('jwt', {session: false}), upload.single('image'), controller.updateCategory)
 
 
 module.exports = router

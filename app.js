@@ -39,6 +39,7 @@ app.use('/api/analytics', analyticsRoutes)
 app.use('/api/category', categoryRoutes)
 app.use('/api/order', orderRoutes)
 app.use('/api/position', positionRoutes)
+app.use('/uploads', express.static('uploads'))
 
 
 module.exports = app;

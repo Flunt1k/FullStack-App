@@ -1,4 +1,5 @@
 const Category = require("../models/Category");
+const Position = require("../models/Position")
 const errorHandler = require("../utils/errorHandler");
 
 module.exports.getAll = async function(request, response) {
@@ -21,6 +22,11 @@ module.exports.getByID = async function(request, response) {
 
 module.exports.deleteByID = async function(request, response) {
   try {
+      await Category.remove({_id: request.params.id})
+      await Position.remove({category: request.params.id})
+      response.status(200).json({
+          message: "Category is deleted"
+      })
   } catch (error) {
     errorHandler(error);
   }

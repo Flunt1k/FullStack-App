@@ -17,7 +17,14 @@ module.exports.getByCategoryId = async function(request, response) {
 
 module.exports.createPosition = async function(request, response) {
     try {
-        
+        const position = new Position({
+            name: request.body.name,
+            cost: request.body.cost,
+            category: request.body.category,
+            name: request.user.id
+        })
+        await position.save()
+        response.status(201).json(position)
     } catch (error) {
         errorHandler(response, error)
     }

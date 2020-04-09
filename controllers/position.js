@@ -43,7 +43,12 @@ module.exports.deleteByID = async function(request, response) {
 
 module.exports.updateByID = async function(request, response) {
     try {
-        
+        const position = await Position.findOneAndUpdate(
+            {_id: request.params.id},
+            {$set: request.body},
+            {new: true}
+             )
+        response.status(200).json(position)
     } catch (error) {
         errorHandler(response, error)
     }

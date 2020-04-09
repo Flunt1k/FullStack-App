@@ -32,7 +32,10 @@ module.exports.createPosition = async function(request, response) {
 
 module.exports.deleteByID = async function(request, response) {
     try {
-        
+        await Position.remove({_id: request.params.id})
+        response.status(200).json({
+            message: "Position is deleted"
+        })
     } catch (error) {
         errorHandler(response, error)
     }

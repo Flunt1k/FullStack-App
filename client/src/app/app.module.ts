@@ -20,7 +20,6 @@ import { RegisterPageComponent } from './register-page/register-page.component';
     RegisterPageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

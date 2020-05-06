@@ -27,6 +27,10 @@ export class AuthService {
        )
     }
 
+    register(user: User): Observable<User> {
+        return this.http.post<User>('api/auth/register', user)
+    }
+
     setToken(token: string){
         this.token = token
     }
@@ -41,8 +45,6 @@ export class AuthService {
 
     logout() {
         this.setToken(null)
-        localStorage.clear
+        localStorage.clear()
     }
-
-    register() {}
 }

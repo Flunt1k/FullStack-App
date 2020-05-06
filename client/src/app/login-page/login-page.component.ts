@@ -28,6 +28,8 @@ export class LoginPageComponent implements OnInit, OnDestroy {
         MaterialService.toast('Now you can login with your email and password')
       } else if (params['accessDenied']) {
         MaterialService.toast('You need to authorize')
+      } else if (params['tokenIsOut']) {
+        MaterialService.toast('Please update your session')
       }
     })
   }

@@ -1,7 +1,7 @@
 <ul class="sidenav sidenav-fixed a-sidenav">
     <h4>Newborn</h4>
-    <li class="bold" *ngFor="let link of links">
-        <a [routerLink]="[link.url]" routerLinkActive="router-link-active"  class="waves-effect waves-orange">
+    <li class="bold" *ngFor="let link of links" routerLinkActive="active">
+        <a [routerLink]="[link.url]" routerLinkActive="router-link-active" class="waves-effect waves-orange">
             {{link.name}}
         </a>
     </li>

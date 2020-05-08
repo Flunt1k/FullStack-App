@@ -16,6 +16,8 @@ import { HistoryPageComponent } from './history-page/history-page.component';
 import { OrderPageComponent } from './order-page/order-page.component';
 import { CategoriesPageComponent } from './categories-page/categories-page.component';
 import { LoaderComponent } from './shared/components/loader/loader.component';
+import { CategoriesFormatPageComponent } from './categories-page/categories-format-page/categories-format-page.component';
+import { CategoriesPositionsFormComponent } from './categories-page/categories-format-page/categories-positions-form/categories-positions-form.component';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import { LoaderComponent } from './shared/components/loader/loader.component';
     OrderPageComponent,
     CategoriesPageComponent,
     LoaderComponent,
+    CategoriesFormatPageComponent,
+    CategoriesPositionsFormComponent,
   ],
   providers: [{provide: HTTP_INTERCEPTORS, multi: true, useClass: TokenInterceptor}],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule],

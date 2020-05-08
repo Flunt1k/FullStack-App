@@ -1,6 +1,8 @@
 <div class="page-title">
   <h4>
-    <a [routerLink]="['/categories']" routerLinkActive="router-link-active" >Категории</a>
+    <a [routerLink]="['/categories']" routerLinkActive="router-link-active"
+      >Категории</a
+    >
     <i class="material-icons">keyboard_arrow_right</i>
     Добавить категорию
   </h4>
@@ -14,31 +16,51 @@
 <div class="row">
   <form class="col s12 l6" [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="input-field">
-      <input id="name" type="text" formControlName="name" [ngClass]="{invalid: form.get('name').invalid && form.get('name').touched}"/>
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        [ngClass]="{
+          invalid: form.get('name').invalid && form.get('name').touched
+        }"
+      />
       <label for="name">Название</label>
-      <span class="helper-text red-text" *ngIf="form.get('name').invalid && form.get('name').touched">
+      <span
+        class="helper-text red-text"
+        *ngIf="form.get('name').invalid && form.get('name').touched"
+      >
         <span *ngIf="form.get('name').errors['required']">
-            Заполните имя категории.
+          Заполните имя категории.
         </span>
       </span>
     </div>
 
     <div>
-      <button class="waves-effect waves-light btn orange lighten-2 mb2" type="button">
+      <input type="file" class="display-none" (change)="onFileUpload($event)" #fileInput />
+      <button
+        class="waves-effect waves-light btn orange lighten-2 mb2"
+        type="button"
+        (click) = "triggerClick()"
+        [disabled] = "form.disabled"
+      >
         <i class="material-icons left">backup</i>
         Загрузить изображение
       </button>
     </div>
 
     <div>
-      <button class="waves-effect waves-light btn" type="submit" [disabled] = "form.invalid || form.disabled">
+      <button
+        class="waves-effect waves-light btn"
+        type="submit"
+        [disabled]="form.invalid || form.disabled"
+      >
         Сохранить изменения
       </button>
     </div>
   </form>
 
   <div class="col s12 l4 center">
-    <img class="responsive-img" style="height: 200px;" src="cake.jpg" />
+    <img class="responsive-img h200" [src] = "imagePreview" *ngIf="imagePreview" />
   </div>
 </div>
 

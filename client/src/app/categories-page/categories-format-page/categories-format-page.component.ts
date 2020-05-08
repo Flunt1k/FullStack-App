@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CategoriesService } from 'src/app/shared/services/categories.service';
@@ -17,15 +17,18 @@ export class CategoriesFormatPageComponent implements OnInit {
     private categoryService: CategoriesService
   ) {}
 
+  @ViewChild('fileInput') inputRef: ElementRef;
   isNew = true;
   form: FormGroup;
+  image: File;
+  imagePreview = '';
 
   ngOnInit(): void {
     this.form = new FormGroup({
       name: new FormControl(null, Validators.required),
     });
 
-    this.form.disable()
+    this.form.disable();
 
     this.route.params
       .pipe(
@@ -43,12 +46,29 @@ export class CategoriesFormatPageComponent implements OnInit {
             this.form.patchValue({
               name: category.name,
             });
-            MaterialService.updateTextInputs()
+            MaterialService.updateTextInputs();
           }
-          this.form.enable()
+          this.form.enable();
         },
         (error) => MaterialService.toast(error.error.message)
       );
+  }
+
+  onFileUpload(event: any) {
+    const file = event.target.files[0];
+    this.image = file;
+
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      this.imagePreview = reader.result.toString();
+    };
+
+    reader.readAsDataURL(file);
+  }
+
+  triggerClick() {
+    this.inputRef.nativeElement.click();
   }
 
   onSubmit() {}

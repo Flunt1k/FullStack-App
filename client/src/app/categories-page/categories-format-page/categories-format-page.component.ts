@@ -5,6 +5,7 @@ import { CategoriesService } from 'src/app/shared/services/categories.service';
 import { switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { MaterialService } from 'src/app/shared/classes/material.service';
+import { Category } from 'src/app/shared/Interfaces';
 
 @Component({
   selector: 'app-categories-format-page',
@@ -41,11 +42,12 @@ export class CategoriesFormatPageComponent implements OnInit {
         })
       )
       .subscribe(
-        (category) => {
+        (category: Category) => {
           if (category) {
             this.form.patchValue({
               name: category.name,
             });
+            this.imagePreview = category.imageSrc
             MaterialService.updateTextInputs();
           }
           this.form.enable();

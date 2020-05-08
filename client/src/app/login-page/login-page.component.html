@@ -5,18 +5,18 @@
             <input formControlName="email" id="email" type="email" [ngClass]="{invalid: form.get('email').invalid && form.get('email').touched}">
             <label for="email">Email:</label>
             <span class="helper-text red-text" *ngIf="form.get('email').invalid && form.get('email').touched">
-                <span *ngIf="form.get('email').errors['required']">Email shouldn't be empty</span>
-                <span *ngIf="form.get('email').errors['email']">Email is invalid</span>
+                <span *ngIf="form.get('email').errors['required']">Поля email должно быть заполнено</span>
+                <span *ngIf="form.get('email').errors['email']">Неправильный email</span>
             </span>
         </div>
         <div class="input-field">
             <input formControlName="password" id="password" type="password" [ngClass]="{invalid: form.get('password').invalid && form.get('password').touched}">
             <label for="password">Пароль:</label>
             <span class="helper-text red-text" *ngIf="form.get('password').invalid && form.get('password').touched">
-                <span *ngIf="form.get('password').errors['required']">Password shouldn't be empty</span>
+                <span *ngIf="form.get('password').errors['required']">Поле пароля должно быть заполнено!</span>
                 <span *ngIf="form.get('password').errors['minlength'] && form.get('password').errors['minlength']['requiredLength'] ">
-                    Password is too short, min length of password is {{form.get('password').errors['minlength']['requiredLength']}}. <br>
-                    Actual length {{form.get('password').errors['minlength']['actualLength']}} symbols
+                    Пароль слишком коротки. Минимальная длинна пароля: {{form.get('password').errors['minlength']['requiredLength']}}. <br>
+                    Текущая длинна: {{form.get('password').errors['minlength']['actualLength']}}  символов
                 </span>
             </span>
         </div>

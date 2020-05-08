@@ -5,7 +5,7 @@ export interface User {
 
 export interface Category {
     name: string,
-    imageSrc?: string,
+    imgSrc?: string,
     user?: string,
     _id?: string
 }

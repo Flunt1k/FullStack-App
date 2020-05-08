@@ -6,7 +6,7 @@ const upload = require('../middleware/upload')
 
 router.get('/', passport.authenticate('jwt', {session: false}), controller.getAll)
 
-router.get(':id', passport.authenticate('jwt', {session: false}), controller.getByID)
+router.get('/:id', passport.authenticate('jwt', {session: false}), controller.getByID)
 
 router.delete('/:id', passport.authenticate('jwt', {session: false}), controller.deleteByID)
 

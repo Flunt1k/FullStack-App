@@ -49,7 +49,7 @@ export class CategoriesFormatPageComponent implements OnInit {
             this.form.patchValue({
               name: category.name,
             });
-            this.imagePreview = category.imageSrc
+            this.imagePreview = category.imgSrc
             MaterialService.updateTextInputs();
           }
           this.form.enable();

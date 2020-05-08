@@ -23,6 +23,7 @@ export class CategoriesFormatPageComponent implements OnInit {
   form: FormGroup;
   image: File;
   imagePreview = '';
+  category: Category;
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -44,6 +45,7 @@ export class CategoriesFormatPageComponent implements OnInit {
       .subscribe(
         (category: Category) => {
           if (category) {
+            this.category = category
             this.form.patchValue({
               name: category.name,
             });
@@ -52,7 +54,10 @@ export class CategoriesFormatPageComponent implements OnInit {
           }
           this.form.enable();
         },
-        (error) => MaterialService.toast(error.error.message)
+        (error) => {
+          MaterialService.toast(error.error.message)
+          this.form.enable()
+        }
       );
   }
 
@@ -73,5 +78,26 @@ export class CategoriesFormatPageComponent implements OnInit {
     this.inputRef.nativeElement.click();
   }
 
-  onSubmit() {}
+  onSubmit() {
+    let obs$
+    this.form.disable()
+
+    if (this.isNew) {
+      obs$ = this.categoryService.create(this.form.value.name, this.image)
+    } else {
+      obs$ = this.categoryService.update(this.category._id ,this.form.value.name, this.image)
+    }
+
+    obs$.subscribe(
+      category => {
+        this.category = category
+        MaterialService.toast('Изменения сохранены')
+        this.form.enable()
+      },
+      error => {
+        MaterialService.toast(error.error.message)
+        this.form.enable()
+      }
+    )
+  }
 }

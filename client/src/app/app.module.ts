@@ -15,6 +15,7 @@ import { AnalyticsPageComponent } from './analytics-page/analytics-page.componen
 import { HistoryPageComponent } from './history-page/history-page.component';
 import { OrderPageComponent } from './order-page/order-page.component';
 import { CategoriesPageComponent } from './categories-page/categories-page.component';
+import { LoaderComponent } from './shared/components/loader/loader.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { CategoriesPageComponent } from './categories-page/categories-page.compo
     HistoryPageComponent,
     OrderPageComponent,
     CategoriesPageComponent,
+    LoaderComponent,
   ],
   providers: [{provide: HTTP_INTERCEPTORS, multi: true, useClass: TokenInterceptor}],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule],

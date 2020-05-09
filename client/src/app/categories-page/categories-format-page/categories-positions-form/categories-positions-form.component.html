@@ -3,17 +3,18 @@
 		<div class="page-subtitle">
 			<h4>Позиции:</h4>
 			<button
-				class="waves-effect waves-light btn grey darken-1 btn-small modal-trigger"
-				data-target="create-modal"
+				class="waves-effect waves-light btn grey darken-1 btn-small"
+				(click)="onAddPosition()"
 			>
 				Добавить позицию
 			</button>
 		</div>
-		<div *ngIf="!loading; else loader"> 
+		<div *ngIf="!loading; else loader">
 			<div class="collection" *ngIf="positions.length !== 0; else empty">
 				<a
 					class="collection-item collection-item-icon"
 					*ngFor="let position of positions"
+					(click)="onSelectPosition(position)"
 				>
 					<span>
 						{{ position.name }} <strong>{{ position.cost }}</strong>
@@ -26,14 +27,14 @@
 			<ng-template #empty>
 				<div class="center">Позиций нет</div>
 			</ng-template>
-    </div>
-    <ng-template #loader>
-      <app-loader></app-loader>
-    </ng-template>
+		</div>
+		<ng-template #loader>
+			<app-loader></app-loader>
+		</ng-template>
 	</div>
 </div>
 
-<div id="create-modal" class="modal">
+<div class="modal" #modal>
 	<div class="modal-content">
 		<h4 class="mb1">Добавить позицию</h4>
 		<div class="input-field">
@@ -46,9 +47,9 @@
 		</div>
 	</div>
 	<div class="modal-footer">
-		<a href="#!" class="modal-action waves-effect waves-black btn-flat"
-			>Отмена</a
-		>
+		<button (click) = "onClose()" type="button" class="modal-action waves-effect waves-black btn-flat">
+			Отмена
+		</button>
 		<button class="modal-action btn waves-effect">Сохранить</button>
 	</div>
 </div>

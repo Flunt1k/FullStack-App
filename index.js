@@ -9,3 +9,9 @@ process.on('SIGTERM', function(){
         process.exit(0)
     })
 })
+
+process.on('uncaughtException', function(){
+    server.close(() => {
+        process.exit(0)
+    })
+})

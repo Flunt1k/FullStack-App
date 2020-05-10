@@ -10,7 +10,7 @@ router.post('/', passport.authenticate('jwt', {session: false}), controller.crea
 
 router.patch('/:id', passport.authenticate('jwt', {session: false}), controller.updateByID)
 
-router.delete('/:id', passport.authenticate('jwt', {session: false}), controller.updateByID)
+router.delete('/:id', passport.authenticate('jwt', {session: false}), controller.deleteByID)
 
 
 module.exports = router

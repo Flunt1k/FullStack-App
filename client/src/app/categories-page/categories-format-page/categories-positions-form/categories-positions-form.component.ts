@@ -74,7 +74,20 @@ export class CategoriesPositionsFormComponent
 		this.modal.close()
 	}
 
-	onDeletePosition(position: Position) {}
+	onDeletePosition(event: Event, position: Position) {
+		event.stopPropagation()
+		const check = confirm(`Удалить позицию ${position.name}`)
+		if (check) {
+			this.positionService.delete(position).subscribe(
+				response => {
+					const index = this.positions.findIndex(item => item._id === position._id)
+					this.positions.splice(index,1)
+					MaterialService.toast('Позиция удалена')
+				}, 
+				error => MaterialService.toast(error.error.message)
+			)
+		}
+	}
 
 	onSubmit() {
 		this.form.disable()

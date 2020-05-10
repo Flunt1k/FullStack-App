@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core"
 import { HttpClient } from "@angular/common/http"
 import { Observable } from "rxjs"
-import { Position } from "../Interfaces"
+import { Position, Message } from "../Interfaces"
 
 @Injectable({
 	providedIn: "root",
@@ -19,5 +19,9 @@ export class PositionService {
 
 	update(position: Position):Observable<Position> {
 		return this.http.patch<Position>(`api/position/${position._id}`, position)
+	}
+
+	delete(position: Position):Observable<Message> {
+		return this.http.delete<Message>(`api/position/${position._id}`)
 	}
 }

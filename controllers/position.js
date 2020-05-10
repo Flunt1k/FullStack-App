@@ -19,7 +19,8 @@ module.exports.createPosition = async function(request, response) {
       name: request.body.name,
       cost: request.body.cost,
       category: request.body.category,
-      name: request.user.id
+      _id: request.params.id,
+      user: request.user.id
     });
     await position.save();
     response.status(201).json(position);

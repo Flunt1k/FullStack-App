@@ -19,5 +19,6 @@ export interface Position {
     cost: number,
     user?: string,
     category: string,
-    _id?: string
+    _id?: string,
+    quantity? : number
 }

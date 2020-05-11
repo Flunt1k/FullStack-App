@@ -19,7 +19,9 @@ import { LoaderComponent } from "./shared/components/loader/loader.component"
 import { CategoriesFormatPageComponent } from "./categories-page/categories-format-page/categories-format-page.component"
 import { CategoriesPositionsFormComponent } from "./categories-page/categories-format-page/categories-positions-form/categories-positions-form.component"
 import { OrderCategoriesComponent } from "./order-page/order-categories/order-categories.component"
-import { OrderPositionsComponent } from "./order-page/order-positions/order-positions.component"
+import { OrderPositionsComponent } from "./order-page/order-positions/order-positions.component";
+import { HistoryListComponent } from './history-page/history-list/history-list.component';
+import { HistoryFilterComponent } from './history-page/history-filter/history-filter.component'
 
 @NgModule({
 	declarations: [
@@ -38,6 +40,8 @@ import { OrderPositionsComponent } from "./order-page/order-positions/order-posi
 		CategoriesPositionsFormComponent,
 		OrderCategoriesComponent,
 		OrderPositionsComponent,
+		HistoryListComponent,
+		HistoryFilterComponent,
 	],
 	providers: [
 		{ provide: HTTP_INTERCEPTORS, multi: true, useClass: TokenInterceptor },

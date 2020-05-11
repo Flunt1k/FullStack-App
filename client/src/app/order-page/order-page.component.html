@@ -1,16 +1,18 @@
 <!--CONTENT-->
 
 <div class="page-title">
-	<h4>Заказ</h4>
+    <h4 *ngIf="isRoot">Заказ</h4>
+    <h4 *ngIf="!isRoot">
+        <a [routerLink]="['/order']">Заказ</a>
+        <i class="material-icons">keyboard_arrow_right</i>
+        Добавить продукцию
+    </h4>
 	<button
 		class="waves-effect btn grey darken-1 modal-trigger"
-		data-target="explore-order"
 	>
 		Завершить
 	</button>
 </div>
-
-
 
 <router-outlet></router-outlet>
 

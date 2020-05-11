@@ -55,13 +55,14 @@
 			routerLinkActive="router-link-active"
 			class="modal-action waves-effect waves-black btn-flat"
 			(click)="closeWindow()"
+			[disabled] = "pending"
 		>
 			Отмена
 		</button>
 		<button
 			class="modal-action btn waves-effect"
 			(click)="onSubmit()"
-			[disabled]="order.list.length === 0"
+			[disabled]="order.list.length === 0 || pending"
 		>
 			Подтвердить
 		</button>

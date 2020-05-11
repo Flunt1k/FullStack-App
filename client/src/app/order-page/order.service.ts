@@ -37,7 +37,10 @@ export class OrderService {
 		this.calcPrice()
 	}
 
-	clear() {}
+	clear() {
+        this.list = []
+        this.price = 0
+    }
 
 	private calcPrice() {
 		this.price = this.list.reduce((acc, item) => {

@@ -11,14 +11,17 @@ import {
 	MaterialService,
 	MaterialInterface,
 } from "../shared/classes/material.service"
+import { OrderService } from './order.service'
 
 @Component({
 	selector: "app-order-page",
 	templateUrl: "./order-page.component.html",
-	styleUrls: ["./order-page.component.css"],
+  styleUrls: ["./order-page.component.css"],
+  providers: [OrderService]
 })
 export class OrderPageComponent implements OnInit, OnDestroy, AfterViewInit {
-	constructor(private router: Router) {}
+  constructor(private router: Router,
+              private order: OrderService) {}
 
 	@ViewChild("modal") modalRef: ElementRef
 	isRoot: boolean

@@ -4,7 +4,7 @@ const errorHandler = require("../utils/errorHandler")
 
 module.exports.overview = async function (request, response) {
 	try {
-		const orders = await Order.find({ user: request.user.id }).sort(1)
+		const orders = await Order.find({ user: request.user.id }).sort({date: 1})
 		const ordersMap = getOrdersMap(orders)
 		const ordersTheDayBefore =
 			ordersMap[momentJS().add(-1, "d").format("DD.MM.YYYY")] || []

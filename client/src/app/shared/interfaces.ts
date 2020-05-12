@@ -49,3 +49,15 @@ export interface Filter {
 export interface MaterialDatepicker extends MaterialInterface {
     date?: Date
 }
+
+export interface OverviewPage {
+	orders: OverviewPageItem
+	revenue :OverviewPageItem
+}
+
+export interface OverviewPageItem {
+	percent: number
+	compare: number
+	yesterday: number
+	isHigher: boolean
+}

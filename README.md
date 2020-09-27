@@ -1,21 +1,21 @@
 # FullStack App with Angular and Express
 
-##Приложение для контроля заказов и выручки. [Ссылка на приложение](https://immense-gorge-28013.herokuapp.com/)
+## Приложение для контроля заказов и выручки. [Ссылка на приложение](https://immense-gorge-28013.herokuapp.com/)
 
-###Описание:
+### Описание:
 
 Приложение по контролю заказов, их истории. Также есть аналитика для получения информации в виде графиков: о доходах и о количестве заказов 
 
 #### Вид приложения: 
-![Вход](https://github.com/Flunt1k/FullStack-App/tree/master/assestsForReadMe/Login.png)
+![login](assestsForReadMe/Login.png)
 
-![Обзор](https://github.com/Flunt1k/FullStack-App/tree/master/assestsForReadMe/Overview.png)
+![overview](assestsForReadMe/Overview.png)
 
-![Аналитика](https://github.com/Flunt1k/FullStack-App/tree/master/assestsForReadMe/Analytics.png)
+![analytics](assestsForReadMe/Analytics.png)
 
-![История](https://github.com/Flunt1k/FullStack-App/tree/master/assestsForReadMe/History.png)
+![history](assestsForReadMe/History.png)
 
-![Добавление заказа](https://github.com/Flunt1k/FullStack-App/tree/master/assestsForReadMe/AddOrder.png)
+![orders](assestsForReadMe/AddOrder.png)
 
 ### Технологии:
 1. Angular

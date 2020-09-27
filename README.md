@@ -7,15 +7,15 @@
 Приложение по контролю заказов, их истории. Также есть аналитика для получения информации в виде графиков: о доходах и о количестве заказов 
 
 #### Вид приложения: 
-![Вход](assestsForReadMe/Screen Shot 2020-09-27 at 1.12.33 PM.png)
+![Вход](https://github.com/Flunt1k/FullStack-App/tree/master/assestsForReadMe/Screen Shot 2020-09-27 at 1.12.33 PM.png)
 
-![Обзор](assestsForReadMe/Screen Shot 2020-09-27 at 1.17.34 PM.png)
+![Обзор](https://github.com/Flunt1k/FullStack-App/tree/master/assestsForReadMe/Screen Shot 2020-09-27 at 1.17.34 PM.png)
 
-![Аналитика](assestsForReadMe/Screen Shot 2020-09-27 at 1.17.41 PM.png)
+![Аналитика](https://github.com/Flunt1k/FullStack-App/tree/master/assestsForReadMe/Screen Shot 2020-09-27 at 1.17.41 PM.png)
 
-![История](assestsForReadMe/Screen Shot 2020-09-27 at 1.17.49 PM.png)
+![История](https://github.com/Flunt1k/FullStack-App/tree/master/assestsForReadMe/Screen Shot 2020-09-27 at 1.17.49 PM.png)
 
-![Добавление заказа](assestsForReadMe/Screen Shot 2020-09-27 at 1.18.03 PM.png)
+![Добавление заказа](https://github.com/Flunt1k/FullStack-App/tree/master/assestsForReadMe/Screen Shot 2020-09-27 at 1.18.03 PM.png)
 
 ### Технологии:
 1. Angular
